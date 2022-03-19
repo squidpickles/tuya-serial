@@ -8,26 +8,26 @@ MARKER = b"\xbb\x01"
 
 def print_buffer(buffer, timestamp):
     """Print contents of buffer."""
-    if buffer.startswith(b"\xbb\x01\x0a"):
+    if buffer.startswith(b"\xbb\x00\x01"):
         entity = "C"
     elif buffer.startswith(b"\xbb\x01\x00"):
         entity = "A"
     else:
         entity = "?"
     print(timestamp, entity, " ".join([f"{byte:02x}" for byte in buffer]), f"({len(buffer)})")
-    print(timestamp, entity, " ".join([f"{byte:>08b}" for byte in buffer]), f"({len(buffer)})")
+    #print(timestamp, entity, " ".join([f"{byte:>08b}" for byte in buffer]), f"({len(buffer)})")
 
 
 def main():
     """Main run loop."""
-    with serial.Serial("/dev/tty.usbserial-AR0KC21N") as ser:
+    with serial.Serial("/dev/tty.usbserial-AR0KC21N", baudrate=9600, parity=serial.PARITY_EVEN) as ser:
         buffer = b""
         timestamp = None
         marker_candidate = b""
         while True:
             byte = ser.read()
             if marker_candidate:
-                if byte == b"\x01":
+                if byte == b"\x01" or byte == b"\x00":
                     print_buffer(buffer, timestamp)
                     buffer = marker_candidate + byte
                 else:
