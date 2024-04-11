@@ -19,3 +19,8 @@ The goal is to be able to control the air conditioner remotely without needing a
 ## Stuff I'm pretty sure about
  - Serial protocol is 9600-8-E-1
  - Each command sends the entire state of the air conditioner, not just the fields that have changed
+
+## See also
+ - [pioneer-uart](https://github.com/squidpickles/pioneer-uart) beginnings of an Arduino library implementation based on this work
+ - [pioneer_wyt_rs232](https://github.com/jspadaro/pioneer_wyt_rs232) another library in Python based on a separate reverse engineering effort
+ - [Pioneer WYT mini split wifi integration](https://community.home-assistant.io/t/pioneer-wyt-mini-split-wifi-integration/434616) a thread on the Home Assistant forums giving some more background on the Tuya module
