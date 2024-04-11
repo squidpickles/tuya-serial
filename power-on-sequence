@@ -1,0 +1,14 @@
+Power on sequence:
+
+- fan runs for a bit
+- 4 way valve powers on for 5 seconds
+- compressor runs
+- indoor fan starts at breeze once temp reaches 25ºC
+- indoor fan goes to low once temp reaches 33ºC
+- indoor fan goes to auto once temp reaches 37ºC
+[auto fan: when roomtemp is x, low < 1.5, med < 3.5, high >=3.5]
+
+Power off:
+- compressor stops
+- indoor fan stops after 30 sec
+- 4 way valve stops 2 min after compressor stops

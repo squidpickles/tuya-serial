@@ -1,0 +1,34 @@
+
+ ets Jan  8 2013,rst cause:2, boot mode:(3,4)
+
+load 0x40100000, len 2592, room 16
+tail 0
+chksum 0xf3
+load 0x3ffe8000, len 764, room 8
+tail 4
+chksum 0x92
+load 0x3ffe82fc, len 676, room 4
+tail 0
+chksum 0x22
+csum 0x22
+
+2nd boot version : 1.7(5d6f877)
+SPI Speed : 40MHz
+SPI Mode : QIO
+SPI Flash Size & Map: 8Mbit(512KB+512KB)
+jump to run user1 @ 1000
+
+V2
+Mo
+�[N]wf_sdk_adpt.c:1096 wifi set max tpw:19 dBm.20 10:30:05
+[N]wf_sdk_adpt.c:1131 country code:CN,SC:1,NC:13
+[N]user_main.c:346 SDK version:2.1.1(28f2dec)
+[N]user_main.c:354 fireware info name:esp_air_DIM_tcl version:1.3.3
+[N]user_main.c:355 tuya sdk version:4.0.3
+[N]user_main.c:359 tuya sdk compiled at May  7 2020 22:04:06
+[N]user_main.c:360 BV:6.01 PV:2.2 LPV:3.3
+reset reason: 6
+epc1=0x00000000, epc2=0x00000000, epc3=0x00000000, excvaddr=0x00000000,depc=0x00000000
+[N]gw_intf.c:408 Authorization success
+mode : null
+
