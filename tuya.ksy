@@ -36,29 +36,31 @@ seq:
   - id: mode
     enum: opmode
     type: b4
+  - id: unknown5
+    type: b4
   - id: temp_whole
-    type: u1
+    type: b4
   - id: antifreeze
     type: b1
-  - id: unknown5
+  - id: unknown6
     type: b1
   - id: vertical_flow
     type: b3
   - id: fan_speed
     enum: fan_speed
     type: b3
-  - id: unknown6
-    type: b5
-  - id: temp_half
-    type: b1
   - id: unknown7
+    type: b5
+  - id: temp_frac
     type: b2
   - id: unknown8
+    type: b1
+  - id: unknown9
     size: 7
   - id: sleep
     type: u1
     enum: sleep
-  - id: unknown9
+  - id: unknown10
     size: 12
   - id: up_down_flow
     enum: up_down_flow
@@ -67,11 +69,11 @@ seq:
     type: u1
     enum: left_right_flow
   - id: checksum
-    doc: "Sum of all bytes % 256"
+    doc: "All bytes except this one XORd together"
     type: u1
 instances:
   temp_in_c:
-    value: "111 - temp_whole - (temp_half ? 0.5 : 0)"
+    value: "31 - temp_whole + (temp_frac * 0.25)"
   temp_in_f:
     value: temp_in_c * 9/5 + 32
 enums:
