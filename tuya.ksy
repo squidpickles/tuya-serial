@@ -71,7 +71,7 @@ seq:
     type: u1
 instances:
   temp_in_c:
-    value: 111 - temp_whole - (temp_half ? 0.5 : 0)
+    value: "111 - temp_whole - (temp_half ? 0.5 : 0)"
   temp_in_f:
     value: temp_in_c * 9/5 + 32
 enums:

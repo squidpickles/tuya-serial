@@ -119,7 +119,7 @@ seq:
     size: 8
 instances:
   temp_set_in_c:
-    value: 16 + temp_set_base + (temp_set_half_base ? 0.5 : 0)
+    value: "16 + temp_set_base + (temp_set_half_base ? 0.5 : 0)"
   temp_set_in_f:
     value: temp_set_in_c * 9/5 + 32
   temp_indoor_in_c:
