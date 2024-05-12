@@ -1,7 +1,7 @@
 meta:
   id: tuya
   file-extension: tuya
-  endian: be
+  endian: le
 seq:
   - id: magic
     contents: [0xbb]
@@ -11,8 +11,10 @@ seq:
   - id: command
     type: u1
     enum: command
+  - id: state_size
+    type: u1
   - id: unknown1
-    size: 3
+    size: 2
   - id: eco
     type: b1
   - id: display
@@ -50,17 +52,25 @@ seq:
     enum: fan_speed
     type: b3
   - id: unknown7
-    type: b5
-  - id: temp_frac
-    type: b2
+    type: b4
+  - id: dp69
+    type: b1
+  - id: temp_half
+    type: b1
   - id: unknown8
+    type: b2
+  - id: dp67
     type: b1
   - id: unknown9
-    size: 7
-  - id: sleep
-    type: u1
-    enum: sleep
+    type: b7
   - id: unknown10
+    size: 6
+  - id: sleep
+    type: b5
+    enum: sleep
+  - id: unknown11
+    type: b3
+  - id: unknown12
     size: 12
   - id: up_down_flow
     enum: up_down_flow
@@ -73,7 +83,7 @@ seq:
     type: u1
 instances:
   temp_in_c:
-    value: "31 - temp_whole + (temp_frac * 0.25)"
+    value: "31 - temp_whole + (temp_half ? 0.5 : 0)"
   temp_in_f:
     value: temp_in_c * 9/5 + 32
 enums:
