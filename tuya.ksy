@@ -59,8 +59,9 @@ seq:
     type: b1
   - id: unknown8
     type: b2
-  - id: dp67
+  - id: display_units
     type: b1
+    enum: display_units
   - id: unknown9
     type: b7
   - id: unknown10
@@ -132,3 +133,6 @@ enums:
     0x01: standard
     0x02: elderly
     0x03: child
+  display_units:
+    0x00: celsius
+    0x01: fahrenheit
