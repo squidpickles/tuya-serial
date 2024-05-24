@@ -11,8 +11,10 @@ seq:
   - id: command
     type: u1
     enum: command
+  - id: state_size
+    type: u1
   - id: unknown1
-    size: 3
+    size: 2
   - id: strong
     type: b1
   - id: eco
@@ -108,15 +110,23 @@ seq:
   - id: current_used_amps # range seems to be about 1-3A
     type: u1
   - id: unknown21
-    size: 4
+    size: 3
+  - id: unknown22
+    type: b6
+  - id: clean_filter
+    type: b1
+  - id: unknown23
+    type: b1
   - id: up_down_flow
     type: u1
     enum: up_down_flow
   - id: left_right_flow
     type: u1
     enum: left_right_flow
-  - id: unknown22
-    size: 8
+  - id: unknown24
+    size: 7
+  - id: checksum
+    type: u1
 instances:
   temp_set_in_c:
     value: "16 + temp_set_base + (temp_set_half_base ? 0.5 : 0)"
