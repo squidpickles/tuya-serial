@@ -124,7 +124,11 @@ seq:
     type: u1
     enum: left_right_flow
   - id: unknown24
-    size: 7
+    size: 2
+  - id: savemoney_temp
+    type: u1 # degrees C
+  - id: unknown25
+    size: 4
   - id: checksum
     type: u1
 instances:
